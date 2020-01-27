@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CourseComponent } from './course/course.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'WDAIProj';
+  CourseCompnent: CourseComponent;
+
+  
+
+  
 }
