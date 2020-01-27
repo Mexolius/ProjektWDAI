@@ -1,0 +1,17 @@
+<header>
+    <div class="container" [ngStyle]="{'grid-template-columns': loggedIn? '10% 30% auto': '10% auto'}">
+        <a routerLink="/" class="logo">{{appTitle}}</a>
+        <div *ngIf="loggedIn">{{userMail}}</div>
+        <nav>
+            <ul>
+                <li><a class="insideContainer" routerLink="/">Strona główna</a></li>
+                <li><a class="insideContainer" routerLink="/browse">Kursy</a></li>
+                <li *ngIf="loggedIn"><a class="insideContainer" routerLink="/contact">Kontakt</a></li>
+                <li><a class="insideContainer" routerLink="/add">Dodaj Kurs</a></li>
+                <li><a class="insideContainer" *ngIf="!loggedIn" routerLink="/login">Zaloguj</a></li>
+                <li><a class="insideContainer" *ngIf="!loggedIn" routerLink="/register">Zarejestruj Się</a></li>
+                <li><a *ngIf="loggedIn" (click)="logOut($event)">Wyloguj</a></li>
+
+            </ul>
+        </nav>
+    </div>

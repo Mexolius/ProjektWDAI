@@ -1,0 +1,27 @@
+<form [formGroup]="filters" (ngSubmit)="onSubmit()">
+    <label>
+        Name:
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+      Description:
+      <textarea formControlName="description"></textarea>
+    </label>
+    <label>
+        Minimum Score:
+        <input type="number" formControlName="minScore">
+      </label>
+      <label>
+        Maximum Score:
+        <input type="number" formControlName="maxScore">
+      </label>
+</form>
+
+<ul *ngIf="filteredCourses" >
+    <h1>Steamy Hot courses just for you :)</h1>
+    <li *ngFor="let Course of allCourses;let i = index">
+            <app-course id="{{Course.ID}}" [ID]="Course.ID"[Name]="Course.Name" [Description]="Course.Description" [Score]="Course.Score" [Image]="Course.Image" #childComponent ></app-course>
+    </li>
+</ul>
+
+<h1 *ngIf="!filteredCourses">Sorry, we have no courses at the moment</h1>

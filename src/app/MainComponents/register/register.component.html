@@ -1,0 +1,54 @@
+<h1>Dołącz do nas już dziś!</h1>
+<h1>Przeglądaj, komentuj i oceniaj kursy bez ograniczeń!</h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <label>
+      Email:
+      <input type="email" formControlName="email" ngModel email>
+      <div *ngIf="submitted && registerForm.controls.email.errors" class="error">
+        <div *ngIf="registerForm.controls.email.value===''">To pole nie może być puste</div>
+        <div *ngIf="registerForm.controls.email.value!=='' && registerForm.controls.email.invalid">To nie jest poprawny adres email</div>
+      </div>
+    </label>
+    
+
+    <label>
+      Hasło:
+      <input type="text" formControlName="password">
+      <div *ngIf="submitted && registerForm.controls.password.errors" class="error">
+        <div *ngIf="registerForm.controls.password.errors.required">To pole nie może być puste</div>
+      </div>
+    </label>
+
+    <label>
+        Imię:
+        <input type="text" formControlName="name">
+        <div *ngIf="submitted && registerForm.controls.name.errors" class="error">
+          <div *ngIf="registerForm.controls.name.errors.required">To pole nie może być puste</div>
+        </div>
+      </label>
+
+      <label>
+        Nazwisko:
+        <input type="text" formControlName="surname">
+        <div *ngIf="submitted && registerForm.controls.surname.errors" class="error">
+          <div *ngIf="registerForm.controls.surname.errors.required">To pole nie może być puste</div>
+        </div>
+      </label>
+
+      <label>
+        Wydział:
+        <select class="custom-select" formControlName="faculty">
+            <option value="" disabled>Wybierz Wydział</option>
+            <option *ngFor="let faculty of faculties" [(ngValue)]="faculty">{{faculty}}</option>
+         </select>
+        <div *ngIf="submitted && registerForm.controls.faculty.errors" class="error">
+          <div *ngIf="registerForm.controls.faculty.errors.required">To pole nie może być puste</div>
+        </div>
+      </label>
+
+    <input type="submit" value="Zarejestruj się" class="cta">
+    <input type="button" value="Zaloguj" (click)="navigateToLogin($event)" class="cta">
+  
+  </form>

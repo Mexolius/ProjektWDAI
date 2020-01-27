@@ -1,0 +1,31 @@
+<h1>Dodaj kurs, strona administracyjna</h1>
+
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <label>
+        Nazwa:
+        <input type="text" formControlName="courseName">
+        <div *ngIf="submitted && addForm.controls.courseName.errors" class="error">
+          <div *ngIf="addForm.controls.courseName.errors.required">To pole nie może być puste</div>
+        </div>
+      </label>
+    
+    <label>
+      Opis:
+      <textarea formControlName="description"></textarea>
+      <div *ngIf="submitted && addForm.controls.description.errors" class="error">
+        <div *ngIf="addForm.controls.password.description.required">To pole nie może być puste</div>
+      </div>
+    </label>
+
+    <label>
+        Obraz:
+        <input type="text" formControlName="image">
+        <div *ngIf="submitted && addForm.controls.image.errors" class="error">
+          <div *ngIf="addForm.controls.image.errors.required">To pole nie może być puste</div>
+        </div>
+      </label>
+
+    <input type="submit" value="Dodaj kurs" class="cta">
+  
+  </form>

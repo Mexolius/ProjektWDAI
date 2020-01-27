@@ -1,0 +1,28 @@
+<div class="clickable" (mouseenter)="unroll($event)"  (mouseleave)="roll($event)">
+    <ng-template [ngIf]="Clicked" [ngIfElse]="unclicked" >
+        <div class="clickedContainer">
+            <div>
+                {{Name}}
+            </div>
+            <div>
+                {{Description}}
+                </div>
+                <div >
+                {{Score}}
+                </div>
+                <button *ngIf="loggedIn" (click)="onClick($event)" >Szczegóły</button>
+                <button *ngIf="loggedIn" (click)="voteUp()" >Podobało mi się</button>
+                <button *ngIf="loggedIn" (click)="voteDown()" >Nie podobało mi się</button>
+                <div>
+                </div>
+
+        </div>
+    </ng-template>
+    <ng-template #unclicked>
+        <div>
+            {{Name}}
+        </div>
+        
+    </ng-template>
+</div>
+

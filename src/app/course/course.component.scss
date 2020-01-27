@@ -1,0 +1,32 @@
+
+
+
+div{
+    display: block;
+    //background-color: yellow;
+    grid-area: "div"
+    
+}
+
+.clickable{
+    height: 100%;
+    padding: 2em;
+}
+
+.clickedContainer
+{
+    display:  grid;
+    grid-template-columns: 50% 50%;
+}
+
+button{
+    
+        padding: 1em;
+        text-transform: uppercase;
+        font-size: .8em;
+
+        &:hover {
+
+            background: rgba(5, 20, 148, 0.3);
+        }
+}
